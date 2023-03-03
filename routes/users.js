@@ -8,8 +8,19 @@ router.get("/", (req, res) => {
 });
 
 router.get("/new", (req, res) => {
-  res.send("User New Form");
+  res.render("users/new");
 });
+
+router.post('/', (req, res) => {
+    const isValid = false
+    if(isValid){
+        users.push({ firstName: req.body.firstName })
+        res.redirect(`users/${users.length - 1}`)
+    } else {
+        console.log('error')
+        res.render('users/new', { firstName: req.body.firstName })
+    }
+})
 
 router
   .route("/:id")
