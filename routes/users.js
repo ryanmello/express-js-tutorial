@@ -8,6 +8,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/new", (req, res) => {
+  req.query.name
   res.render("users/new");
 });
 
